@@ -251,10 +251,13 @@ while cap.isOpened():
 
             x = bbox.origin_x
             y = bbox.origin_y
-
             w = bbox.width
             h = bbox.height
-
+            center_x= x + w/2
+            center_y =y+h/2
+            normalized_x = center_x / frame.shape[1]
+            normalized_y = center_y / frame.shape[0]
+            print(f"Face center: ({normalized_x:.4f}, {normalized_y:.4f})")
             cv2.rectangle(
                 frame,
                 (x, y),
